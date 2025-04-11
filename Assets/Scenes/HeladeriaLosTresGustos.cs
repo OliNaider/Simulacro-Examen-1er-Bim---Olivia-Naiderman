@@ -13,25 +13,25 @@ public class HeladeriaLosTresGustos : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (saborHelado != "DDL" && saborHelado != "CHO" && saborHelado != "FRU")
+        if (saborHelado != "DDL" && saborHelado != "CHO" && saborHelado != "FRU")  //si el sabor es diferente a esos 3
         {
             Debug.Log("Sabor de helado no valido");
             return;
         }
 
-        if (cantGramos < 250 && cantGramos > 3000) {
+        if (cantGramos < 250 || cantGramos > 3000) {  //si el numero es menor a 250 o mayor a 3000
             Debug.Log("Cantidades no validas");
             return;
         }
 
-        if (saborHelado == "DDL" || saborHelado == "CHO")
+        if (saborHelado == "DDL" || saborHelado == "CHO") //si el sabor es DDL o CHO 
         {
             resultado = costoGramo * cantGramos;
-            Debug.Log(resultado);
+            Debug.Log("Tu helado cuesta: " + resultado + "$");
 
-        } else if (saborHelado == "FRU") {
-            resultado = cantGramos - (costoGramo * 0.10f);
-            Debug.Log(resultado);
+        } else if (saborHelado == "FRU") {   //si el sabor es fRU (es diferente porque haces el 10%)
+            resultado = (costoGramo * cantGramos)*0.9f;
+            Debug.Log("Tu helado cuesta: " + resultado + "$");
 
         }
      
